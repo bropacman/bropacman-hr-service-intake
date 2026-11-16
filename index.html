@@ -38,6 +38,7 @@ a{color:var(--accent)}
 .svcname b{color:var(--ink);font-weight:600}
 .tbtn{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600;cursor:pointer}
 .tbtn:hover{border-color:var(--accent)}
+.tbtn[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .prog{width:100%;display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
 .bar{flex:1;height:6px;border-radius:99px;background:var(--line2);overflow:hidden;display:flex}
 .bar span{display:block;height:100%}
@@ -63,8 +64,8 @@ nav.sec::-webkit-scrollbar{display:none}
 .navi .n{margin-left:auto;font-size:11px;font-weight:600;border-radius:99px;padding:1px 7px;background:var(--line2);color:var(--muted)}
 .navi .n.ok{background:var(--ok-bg);color:var(--ok)}
 .navi .n.fl{background:var(--flag-bg);color:var(--flag)}
-.navi.review{margin-top:6px}
-@media(min-width:920px){.navi.review{border-top:1px solid var(--line);border-radius:0;padding-top:12px;margin-top:8px}}
+.navi.sep{margin-top:6px}
+@media(min-width:920px){.navi.sep{border-top:1px solid var(--line);border-radius:0;padding-top:12px;margin-top:8px}}
 
 main{min-width:0}
 .sechead h1{font-size:26px;line-height:1.2;letter-spacing:-.02em;margin:4px 0 6px}
@@ -96,8 +97,8 @@ main{min-width:0}
 .wb[open] summary:before{content:"▾ "}
 .wb div{margin-top:4px;padding:8px 10px;background:var(--bg);border-radius:8px}
 
-input[type=text],textarea,select{width:100%;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:10px 12px;outline:none;transition:border-color .15s}
-input[type=text]:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+input[type=text],input[type=search],input[type=date],input[type=datetime-local],input[type=number],textarea,select{width:100%;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:10px 12px;outline:none;transition:border-color .15s}
+input[type=text]:focus,input[type=search]:focus,input[type=date]:focus,input[type=datetime-local]:focus,input[type=number]:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 textarea{min-height:92px;resize:vertical}
 .counter{font-size:12px;color:var(--faint);text-align:right;margin-top:4px}
 .counter.over{color:var(--warn);font-weight:600}
@@ -185,6 +186,89 @@ pre.out{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);b
 .intro b{display:block;font-size:15.5px;margin-bottom:4px}
 .intro ul{margin:6px 0 0;padding-left:18px}
 .intro .acts{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+
+/* developer view */
+.dev{margin:8px 0 12px;padding:8px 10px;border-radius:8px;background:var(--bg);border:1px dashed var(--line);font-size:12.5px;color:var(--muted)}
+.dev .dk{font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;color:var(--faint);margin-right:6px}
+.dev div+div{margin-top:4px}
+.dev code{word-break:break-word}
+.opt .ov{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--faint);font-weight:400;margin-left:6px}
+.fl label .mono-tag{font-size:10.5px;font-weight:600;color:var(--faint);margin-left:6px}
+
+/* preview */
+.pvjump{display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 16px}
+.pvsec{scroll-margin-top:140px}
+.pvsec h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin:20px 0 8px}
+.pvsec h3:first-of-type{margin-top:6px}
+.tbd{display:inline-block;font-size:10.5px;font-weight:700;padding:1px 7px;border-radius:99px;background:var(--flag-bg);color:var(--flag);margin-left:6px;vertical-align:2px;letter-spacing:.04em;white-space:nowrap;font-style:normal}
+.tbd.defer{background:var(--accent-soft);color:var(--accent)}
+.tbd.prop{background:var(--prop-bg);color:var(--prop);font-weight:600}
+.pv-empty{color:var(--faint);font-style:italic}
+.pvsec input:disabled,.pvsec select:disabled,.pvsec textarea:disabled{opacity:.6;cursor:not-allowed}
+.pre{white-space:pre-wrap;word-break:break-word}
+.crumb{font-size:12.5px;color:var(--muted);margin-bottom:8px}
+.tile{display:flex;gap:12px;border:1px solid var(--line);border-radius:12px;padding:14px;max-width:380px;background:var(--bg)}
+.tile .ic{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);flex-shrink:0;position:relative}
+.tile .ic:after{content:"";position:absolute;inset:12px;border:2px solid var(--accent);border-radius:4px}
+.tile .tt{font-weight:600;line-height:1.3}
+.tile .td{font-size:13.5px;color:var(--muted);margin-top:3px;word-break:break-word}
+.cut{background:var(--flag-bg);color:var(--flag);text-decoration:line-through}
+.kw{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;align-items:center;font-size:13px}
+.kw .k{color:var(--muted);margin-right:2px}
+.kw .tag{font-size:12px;font-weight:500}
+.meta-l{font-size:13.5px;color:var(--muted);margin-top:10px}
+.meta-l b{color:var(--ink);font-weight:600}
+.ef{border:1px solid var(--line);border-radius:12px;padding:18px;background:var(--bg);max-width:640px}
+.ef-title{font-size:20px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.ef-desc{color:var(--muted);font-size:14.5px;margin-bottom:18px}
+.ef-f{margin-bottom:18px}
+.ef-f.cond{border-left:3px dashed color-mix(in srgb,var(--prop) 55%,var(--line));padding-left:12px}
+.ef-f>label,.ef-f>.lb{display:block;font-weight:600;font-size:14.5px;margin-bottom:6px}
+.req{color:var(--flag);margin-right:3px}
+.ef-cond{display:inline-block;font-size:12.5px;color:var(--prop);background:var(--prop-bg);border-radius:6px;padding:2px 8px;margin-bottom:6px}
+.ef-help{font-size:13px;color:var(--muted);margin-top:5px}
+.ef-note{font-size:12.5px;color:var(--faint);margin-top:4px}
+.ef-dev{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--faint);margin-top:4px;word-break:break-word}
+.ef-info{background:var(--accent-soft);border-radius:9px;padding:12px 14px;font-size:14px}
+.ef-h{font-size:17px;font-weight:700;margin:6px 0 0;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.ef-ch{display:flex;gap:8px;align-items:center;padding:4px 0;font-size:14.5px;cursor:pointer}
+.ef-ch input{accent-color:var(--accent);margin:0}
+.ef input[type=file]{font-size:13.5px;max-width:100%}
+.ef-cur{display:flex;align-items:center;gap:6px}.ef-cur span{color:var(--muted)}
+.ef-acts{display:flex;gap:8px;margin-top:8px}
+.case{border:1px solid var(--line);border-radius:12px;background:var(--bg);overflow:hidden}
+.case-hd{padding:14px 16px;border-bottom:1px solid var(--line);background:var(--card)}
+.case-t{font-size:18px;font-weight:700;margin-top:2px}
+.case-sub{font-size:13px;color:var(--muted)}
+.case-b{padding:16px}
+.case-b h3:first-child{margin-top:0}
+.cgrid{display:grid;gap:12px 20px}
+@media(min-width:620px){.cgrid{grid-template-columns:1fr 1fr}.cgrid .full{grid-column:1/-1}}
+.cf .k{font-size:12.5px;color:var(--muted);font-weight:600;margin-bottom:3px}
+.cf .v{font-size:14.5px}
+.lock{font-size:12.5px;color:var(--warn);background:var(--warn-bg);display:inline-block;border-radius:6px;padding:2px 8px;margin-top:5px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:10px 12px;font-size:14px}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{position:relative;padding:0 0 14px 38px;min-height:28px}
+.tl li:before{content:"";position:absolute;left:13px;top:26px;bottom:2px;width:2px;background:var(--line)}
+.tl li:last-child{padding-bottom:0}.tl li:last-child:before{display:none}
+.tl .tn{position:absolute;left:0;top:0;width:28px;height:28px;border-radius:99px;background:var(--card);border:2px solid var(--accent);color:var(--accent);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.tl .end .tn{border-color:var(--ok);color:var(--ok)}
+.tl li>div{padding-top:3px;font-size:14.5px}
+.tl small{display:block;color:var(--muted);font-size:13px}
+.rule{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--card);margin-bottom:10px}
+.rule .rc{font-weight:600;margin-bottom:10px;font-size:14px}
+.step{margin-bottom:14px}
+.step .sh{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:6px}
+.step .sh span{font-weight:500;color:var(--muted)}
+.par{display:grid;gap:8px}
+@media(min-width:620px){.par.n2{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}}
+.tcard{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--card);font-size:14px}
+.tcard .tn2{font-weight:600}
+.tcard .sm{font-size:13px;color:var(--muted);margin-top:2px}
+.fab{position:fixed;right:16px;bottom:16px;z-index:30;border:none;background:var(--ink);color:var(--bg);border-radius:99px;padding:11px 18px;font-weight:700;font-size:14px;box-shadow:0 4px 14px rgba(0,0,0,.18);cursor:pointer}
+@media(min-width:920px){.fab{display:none}}
+@media(max-width:919px){.toast{bottom:76px}}
 </style>
 </head>
 <body>
@@ -192,6 +276,7 @@ pre.out{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);b
   <div class="top-in">
     <div class="brand"><i></i>HR Service Intake</div>
     <div class="svcname" id="svcname"></div>
+    <button class="tbtn" id="devbtn" data-act="dev" aria-pressed="false" title="Show workbook wording and technical fields">Developer view</button>
     <button class="tbtn" data-act="menu">Save &amp; share</button>
     <div class="prog">
       <div class="bar" id="bar"></div>
@@ -208,6 +293,8 @@ pre.out{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);b
 
 <div class="modal" id="modal" role="dialog" aria-modal="true"><div class="mbox" id="mbox"></div></div>
 <div class="toast" id="toast"></div>
+<button class="fab" id="fab" data-act="fab" type="button">Preview</button>
+<input type="file" id="upfile" accept=".json,.txt,application/json,text/plain" hidden>
 
 <script>
 /* ============================================================
@@ -360,8 +447,8 @@ const SECTIONS = [
      {id:'help', label:'Help text under the question', type:'text', full:true},
      {id:'conditions', label:'Only show it when…', type:'text', full:true, ph:'e.g. only if they picked "Two days / week"'},
      {id:'notes', label:'Other notes', type:'text', full:true, ph:'e.g. pick up to 2 days'},
-     {id:'name', label:'Technical name (development team)', type:'text', mono:true},
-     {id:'maps_to', label:'Saves to case field (development team)', type:'text', mono:true}
+     {id:'name', label:'Technical name (development team)', type:'text', mono:true, tech:true},
+     {id:'maps_to', label:'Saves to case field (development team)', type:'text', mono:true, tech:true}
     ]}
  ]},
 
@@ -376,7 +463,7 @@ const SECTIONS = [
      {id:'readonly', label:'Read-only for HR?', type:'seg', options:['No','Yes']},
      {id:'security', label:'Who should NOT see it?', type:'text', fh:'e.g. only the employee and manager can see the address'},
      {id:'on_create', label:'Ask for it when HR opens a case by hand?', type:'seg', options:['No','Yes']},
-     {id:'default', label:'Where does the value come from? (development team)', type:'text', mono:true},
+     {id:'default', label:'Where does the value come from? (development team)', type:'text', mono:true, tech:true},
      {id:'notes', label:'Other notes', type:'text', full:true}
     ]}
  ]},
@@ -445,7 +532,8 @@ const SECTIONS = [
 
 /* ---------- state ---------- */
 const KEY = 'hrServiceIntake.v1';
-let S, role = 'all', cur = 'basics';
+let S, role = 'all', cur = 'basics', lastSec = 'basics';
+let dev = false; try{ dev = localStorage.getItem(KEY+'.dev')==='1'; }catch(e){}
 const ALLQ = {}; SECTIONS.forEach(s=>s.qs.forEach(q=>{ALLQ[q.id]=q; q.sec=s.id;}));
 
 function blank(){
@@ -491,6 +579,7 @@ function secCounts(s){
 
 /* ---------- render: chrome ---------- */
 function renderTop(){
+  const db=document.getElementById('devbtn'); if(db) db.setAttribute('aria-pressed', String(dev));
   const n = V('service_name');
   document.getElementById('svcname').innerHTML = n ? '<b>'+esc(n)+'</b>' + (S.meta.by?' · '+esc(S.meta.by):'') : 'New service';
   const c = counts('all'), t = Math.max(c.total,1);
@@ -515,8 +604,10 @@ function renderNav(){
     let badge = c.flag ? '<span class="n fl">'+c.flag+' flagged</span>' : (c.total && c.done+c.proposed+c.defer===c.total ? '<span class="n ok">✓</span>' : '<span class="n">'+(c.done+c.proposed+c.defer)+'/'+c.total+'</span>');
     return '<button class="navi" data-go="'+s.id+'" aria-current="'+(cur===s.id)+'">'+esc(s.title)+badge+'</button>';
   }).join('');
+  h += '<button class="navi sep" data-go="preview" aria-current="'+(cur==='preview')+'">Preview</button>';
   h += '<button class="navi review" data-go="review" aria-current="'+(cur==='review')+'">Review &amp; send</button>';
   document.getElementById('nav').innerHTML = h;
+  const fab = document.getElementById('fab'); if(fab) fab.textContent = cur==='preview' ? '← Back to questions' : 'Preview';
 }
 
 /* ---------- render: questions ---------- */
@@ -535,7 +626,7 @@ function renderQ(q){
   } else if(q.type==='choice'){
     const ol = optList(q), cls = q.cols===3?'c3':(ol.length===2||q.cols===2?'c2':'');
     body = '<div class="opts '+cls+'" role="radiogroup">'+ol.map(o=>
-      '<label class="opt'+(o.v===v?' sel':'')+'"><input type="radio" name="r_'+q.id+'" data-q="'+q.id+'" value="'+esc(o.v)+'"'+(o.v===v?' checked':'')+'><span><div class="ol">'+esc(o.label||o.v)+'</div>'+(o.d?'<div class="od">'+esc(o.d)+'</div>':'')+'</span></label>').join('')+'</div>';
+      '<label class="opt'+(o.v===v?' sel':'')+'"><input type="radio" name="r_'+q.id+'" data-q="'+q.id+'" value="'+esc(o.v)+'"'+(o.v===v?' checked':'')+'><span><div class="ol">'+esc(o.label||o.v)+(dev&&o.label&&o.label!==o.v?'<span class="ov">= '+esc(o.v)+'</span>':'')+'</div>'+(o.d?'<div class="od">'+esc(o.d)+'</div>':'')+'</span></label>').join('')+'</div>';
   } else if(q.type==='rows'){
     body = renderRows(q);
   }
@@ -546,6 +637,7 @@ function renderQ(q){
     '<div class="qtop"><h3 class="qlabel">'+esc(q.label)+(q.optional?' <span style="font-weight:400;color:var(--faint);font-size:14px">(optional)</span>':'')+'</h3>'+
     '<div class="tags"><span class="tag" title="'+esc(r.desc)+'">'+esc(r.short)+'</span><span class="tag st-'+st+'" data-st="'+q.id+'">'+ST_LABEL[st]+'</span></div></div>'+
     (q.help?'<p class="help">'+q.help+'</p>':'<div style="height:10px"></div>')+
+    (dev ? devBox(q, st) : '') +
     body + prop +
     '<div data-warn="'+q.id+'">'+(w?'<div class="note warn">⚠ <span>'+esc(w)+'</span></div>':'')+'</div>'+
     '<div class="qfoot"><button class="flagbtn" data-act="flag" data-id="'+q.id+'" aria-pressed="'+(!!a.flag)+'">'+(a.flag?'⚑ Flagged for discussion':'⚑ Not sure? Flag it')+'</button>'+
@@ -553,8 +645,21 @@ function renderQ(q){
       (a.by?'<span class="by">Last edited by '+esc(a.by)+'</span>':'')+'</div>'+
     (a.defer?'<div class="flagnote"><textarea data-flagnote="'+q.id+'" placeholder="Anything they should keep in mind? (optional)">'+esc(a.fnote||'')+'</textarea></div>':'')+
     (a.flag?'<div class="flagnote"><textarea data-flagnote="'+q.id+'" placeholder="What\'s unclear, or who should answer this?">'+esc(a.fnote||'')+'</textarea></div>':'')+
-    '<details class="wb"><summary>Original workbook question</summary><div>'+esc(q.wb)+'</div></details>'+
+    (dev ? '' : '<details class="wb"><summary>Original workbook question</summary><div>'+esc(q.wb)+'</div></details>')+
   '</section>';
+}
+
+const fnSrc = f => String(f).replace(/^\s*V\s*=>\s*/,'').replace(/\s+/g,' ').trim();
+function devBox(q, st){
+  const a = S.a[q.id] || {};
+  const bits = ['id: <code>'+esc(q.id)+'</code>', 'type: <code>'+esc(q.type)+'</code>', 'role: <code>'+esc(q.role)+'</code>', 'status: <code>'+esc(st)+'</code>'];
+  if(q.suggest!==undefined) bits.push('default: <code>'+esc(JSON.stringify(q.suggest))+'</code>');
+  if(q.max) bits.push('max: <code>'+q.max+'</code>');
+  if(q.show) bits.push('shown when: <code>'+esc(fnSrc(q.show))+'</code>');
+  let h = '<div class="dev"><div><span class="dk">Workbook</span>'+esc(q.wb)+'</div><div><span class="dk">Field</span>'+bits.join(' · ')+'</div>';
+  if(q.type==='rows') h += '<div><span class="dk">Columns</span>'+q.fields.map(f=>'<code>'+esc(f.id)+'</code>'+(f.tech?'*':'')).join(', ')+(q.fields.some(f=>f.tech)?' <span style="color:var(--faint)">(* technical, shown only in developer view)</span>':'')+'</div>';
+  else if(!isEmpty(a.v)) h += '<div><span class="dk">Stored</span><code>'+esc(JSON.stringify(a.v))+'</code>'+(a.ok?' · confirmed':'')+(a.by?' · by '+esc(a.by):'')+'</div>';
+  return h+'</div>';
 }
 
 function renderRows(q){
@@ -568,6 +673,7 @@ function renderRows(q){
       '<button class="btn ghost sm" data-act="del" data-id="'+q.id+'" data-i="'+i+'">Remove</button></span></div><div class="rowgrid">';
     q.fields.forEach(f=>{
       if(f.show && !f.show(r)) return;
+      if(f.tech && !dev) return;
       const val = r[f.id]||'';
       const at = 'data-rq="'+q.id+'" data-ri="'+i+'" data-rf="'+f.id+'"';
       let inp='';
@@ -575,7 +681,7 @@ function renderRows(q){
       else if(f.type==='textarea') inp='<textarea '+at+' placeholder="'+esc(f.ph||'')+'" style="min-height:70px">'+esc(val)+'</textarea>';
       else if(f.type==='select') inp='<select '+at+'><option value="">Choose…</option>'+f.options.map(o=>{const d=f.descs&&f.descs.find(x=>x.v===o);return '<option value="'+esc(o)+'"'+(o===val?' selected':'')+'>'+esc(o)+(d?' — '+esc(d.d):'')+'</option>';}).join('')+'</select>';
       else if(f.type==='seg') inp='<div class="seg">'+f.options.map(o=>'<button type="button" '+at+' data-segv="'+esc(o)+'" aria-pressed="'+(val===o)+'">'+esc(o)+'</button>').join('')+'</div>';
-      h += '<div class="fl'+(f.full?' full':'')+'"><label>'+esc(f.label)+'</label>'+(f.fh?'<div class="fh">'+esc(f.fh)+'</div>':'')+inp+'</div>';
+      h += '<div class="fl'+(f.full?' full':'')+'"><label>'+esc(f.label)+(dev?'<span class="mono-tag">'+esc(f.id)+'</span>':'')+'</label>'+(f.fh?'<div class="fh">'+esc(f.fh)+'</div>':'')+inp+'</div>';
     });
     h += '</div></div>';
   });
@@ -586,6 +692,7 @@ function renderRows(q){
 function renderMain(){
   const m = document.getElementById('main');
   if(cur==='review'){ m.innerHTML = renderReview(); return; }
+  if(cur==='preview'){ m.innerHTML = renderPreview(); return; }
   const vis = SECTIONS.filter(secVisible);
   let s = vis.find(x=>x.id===cur); if(!s){ s=vis[0]; cur=s.id; }
   const idx = vis.indexOf(s);
@@ -593,9 +700,9 @@ function renderMain(){
   if(s.id==='basics' && !S.meta.by && !V('service_name')){
     h += '<div class="intro"><b>How this works</b>This replaces the requirements spreadsheet. Answer in plain English and skip anything that isn\'t yours to decide.<ul>'+
       '<li>Pick your role above to see only your questions.</li><li>Not sure about something? <b>Flag it</b> rather than guess. If it\'s a technical detail you don\'t care about, choose <b>Let the development team decide</b>.</li><li>Answers the development team suggested are marked <b>Suggested</b>. Change them if they\'re wrong.</li><li>Your answers stay in this browser until you use <b>Save &amp; share</b>.</li></ul>'+
-      '<div class="acts"><button class="btn primary sm" data-act="who">Add your name</button><button class="btn sm" data-act="import">Load answers someone sent you</button><button class="btn sm" data-act="sample">See a filled-in example</button></div></div>';
+      '<div class="acts"><button class="btn primary sm" data-act="who">Add your name</button><button class="btn sm" data-act="upload">Upload an answer file</button><button class="btn sm" data-act="import">Paste answers</button><button class="btn sm" data-act="sample">See a filled-in example</button></div></div>';
   }
-  h += '<div class="sechead"><div class="stepno">Step '+(idx+1)+' of '+vis.length+'</div><h1>'+esc(s.title)+'</h1><p>'+esc(s.intro)+'</p></div>';
+  h += '<div class="sechead"><div class="stepno">Step '+(idx+1)+' of '+vis.length+'</div><h1>'+esc(s.title)+'</h1><p>'+esc(s.intro)+'</p>'+(dev?'<div class="dev"><span class="dk">Section</span>id: <code>'+esc(s.id)+'</code>'+(s.show?' · shown when: <code>'+esc(fnSrc(s.show))+'</code>':'')+'</div>':'')+'</div>';
   const qs = s.qs.filter(q=>qVisible(q) && roleMatch(q));
   if(!qs.length) h += '<div class="panel"><p style="margin:0">Nothing here for '+esc(ROLES[role]?ROLES[role].label:'this role')+'. Pick "Everything" above to see all questions.</p></div>';
   h += qs.map(renderQ).join('');
@@ -615,6 +722,202 @@ function refreshMeta(qid){
   const wbox = document.querySelector('[data-warn="'+qid+'"]');
   if(wbox && q.warn){ const w=q.warn(V(qid),V); wbox.innerHTML = w?'<div class="note warn">⚠ <span>'+esc(w)+'</span></div>':''; }
   if(st!=='proposed' && card){ const p=card.querySelector('.note.prop'); if(p) p.remove(); }
+}
+
+/* ---------- preview ---------- */
+/* TBD chip for a flagged / deferred question; "suggested" chip for an unconfirmed default */
+function pvChip(id){
+  const q = ALLQ[id], a = S.a[id] || {}; if(!q) return '';
+  if(a.flag) return '<span class="tbd" title="'+esc(a.fnote||'Flagged for discussion')+'">TBD · flagged</span>';
+  if(a.defer) return '<span class="tbd defer" title="'+esc(a.fnote||'Development team to decide')+'">TBD · dev team</span>';
+  if(q.suggest!==undefined && !a.ok && same(a.v,q.suggest)) return '<span class="tbd prop" title="Suggested by the development team, not yet confirmed">suggested</span>';
+  return '';
+}
+/* Value of a question as preview HTML, with its TBD chip */
+function pvVal(id, empty, pre){
+  const q = ALLQ[id], a = S.a[id] || {}, v = a.v;
+  let h;
+  if(isEmpty(v)) h = (a.flag||a.defer) ? '' : '<span class="pv-empty">'+esc(empty||'Not answered yet')+'</span>';
+  else if(q.type==='choice'){ const o=optList(q).find(o=>o.v===v); h = esc(o&&o.label ? o.label : v); }
+  else h = pre ? '<span class="pre">'+esc(v)+'</span>' : esc(v);
+  return h + pvChip(id);
+}
+/* Banner for a whole list (rows question) that is flagged or deferred */
+function pvBanner(id){
+  const a = S.a[id] || {};
+  if(!a.flag && !a.defer) return '';
+  return '<div class="note '+(a.flag?'warn':'prop')+'" style="margin:0 0 12px"><span class="tbd'+(a.flag?'':' defer')+'" style="margin:0">TBD</span><span>'+
+    (a.flag?'This list is flagged for discussion':'The development team will finish this list')+(a.fnote?': “'+esc(a.fnote)+'”':'.')+'</span></div>';
+}
+const lines = t => String(t||'').split('\n').map(x=>x.trim()).filter(Boolean);
+
+/* A working input for one form question / case field row */
+let pvN = 0;
+function pvInput(r, opts){
+  const key = 'pv'+(pvN++), t = r.type||'', ro = r.readonly==='Yes', dis = ro?' disabled':'';
+  const def = opts.useDefault ? String(r.default||'').trim() : '';
+  const ch = lines(r.choices);
+  const noCh = '<div class="ef-note">Choices not listed yet<span class="tbd">TBD</span></div>';
+  let h = '', note = '';
+  switch(t){
+    case 'Multi-line text': h = '<textarea id="'+key+'"'+dis+'>'+esc(def)+'</textarea>'; break;
+    case 'Yes / No': h = '<select id="'+key+'"'+dis+'><option value="">-- None --</option>'+['Yes','No'].map(o=>'<option'+(norm(def)===norm(o)?' selected':'')+'>'+o+'</option>').join('')+'</select>'; break;
+    case 'Dropdown (pick one)': h = ch.length ? '<select id="'+key+'"'+dis+'><option value="">-- None --</option>'+ch.map(o=>'<option'+(def&&norm(def)===norm(o)?' selected':'')+'>'+esc(o)+'</option>').join('')+'</select>' : noCh; break;
+    case 'Radio buttons (pick one)': h = ch.length ? ch.map((o,i)=>'<label class="ef-ch"><input type="radio" name="'+key+'" value="'+i+'"'+(def&&norm(def)===norm(o)?' checked':'')+dis+'>'+esc(o)+'</label>').join('') : noCh; break;
+    case 'Checkboxes (pick several)': { const ds = def.split(/\s*[,;\n]\s*/).map(norm).filter(Boolean);
+      h = ch.length ? ch.map(o=>'<label class="ef-ch"><input type="checkbox"'+(ds.includes(norm(o))?' checked':'')+dis+'>'+esc(o)+'</label>').join('') : noCh; break; }
+    case 'Date': { const ok=/^\d{4}-\d{2}-\d{2}$/.test(def); h = '<input type="date" id="'+key+'"'+(ok?' value="'+esc(def)+'"':'')+dis+'>'; if(def&&!ok) note=def; break; }
+    case 'Date/Time': { const ok=/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(def); h = '<input type="datetime-local" id="'+key+'"'+(ok?' value="'+esc(def)+'"':'')+dis+'>'; if(def&&!ok) note=def; break; }
+    case 'Number': { const ok=def!==''&&!isNaN(+def); h = '<input type="number" id="'+key+'"'+(ok?' value="'+esc(def)+'"':'')+dis+'>'; if(def&&!ok) note=def; break; }
+    case 'Currency': { const ok=def!==''&&!isNaN(+def); h = '<div class="ef-cur"><span>$</span><input type="number" step="0.01" min="0" placeholder="0.00" id="'+key+'"'+(ok?' value="'+esc(def)+'"':'')+dis+'></div>'; if(def&&!ok) note=def; break; }
+    case 'Pick a person': h = '<input type="search" id="'+key+'" placeholder="Search for a person…"'+(def?' value="'+esc(def)+'"':'')+dis+'>'; break;
+    case 'Attachment': h = '<input type="file" id="'+key+'"'+dis+'><div class="ef-note">In this preview the file stays on your device.</div>'; break;
+    default: h = '<input type="text" id="'+key+'" value="'+esc(def)+'"'+dis+'>'+(t?'':'<div class="ef-note">Answer type not chosen yet<span class="tbd">TBD</span></div>');
+  }
+  if(note) h += '<div class="ef-note">Pre-filled with: '+esc(note)+'</div>';
+  return {key, h};
+}
+
+function pvFormField(r){
+  const t = r.type||'';
+  const cond = r.conditions ? '<div class="ef-cond">↳ Only shown when '+esc(r.conditions)+'</div>' : '';
+  const devl = dev && (r.name||r.maps_to) ? '<div class="ef-dev">'+esc(r.name||'(no name)')+(r.maps_to?' → '+esc(r.maps_to):'')+'</div>' : '';
+  const cls = 'ef-f'+(r.conditions?' cond':'');
+  if(t==='Info text (no answer)'){
+    const body = r.help || r.notes;
+    return '<div class="'+cls+'">'+cond+'<div class="ef-info">'+(r.label?'<b>'+esc(r.label)+'</b>'+(body?'<br>':''):'')+(body?'<span class="pre">'+esc(body)+'</span>':'')+(!r.label&&!body?'<span class="pv-empty">Info text not written yet</span>':'')+'</div>'+devl+'</div>';
+  }
+  if(t==='Heading / label') return '<div class="'+cls+'">'+cond+'<div class="ef-h">'+(r.label?esc(r.label):'<span class="pv-empty">Heading</span>')+'</div>'+devl+'</div>';
+  const inp = pvInput(r, {useDefault:true});
+  const grouped = t==='Radio buttons (pick one)' || t==='Checkboxes (pick several)';
+  const lab = (r.required==='Yes'?'<span class="req" title="Required">*</span>':'')+(r.label?esc(r.label):'<span class="pv-empty">Question not written yet</span>')+(r.readonly==='Yes'?' <span class="tag">read-only</span>':'');
+  return '<div class="'+cls+'"'+(grouped?' role="group" aria-labelledby="'+inp.key+'_l"':'')+'>'+cond+
+    (grouped ? '<div class="lb" id="'+inp.key+'_l">'+lab+'</div>' : '<label for="'+inp.key+'">'+lab+'</label>')+
+    inp.h + (r.help?'<div class="ef-help">'+esc(r.help)+'</div>':'') + (r.notes?'<div class="ef-note">Note for the builders: '+esc(r.notes)+'</div>':'') + devl + '</div>';
+}
+
+function pvCaseField(r){
+  const inp = pvInput(r, {useDefault:false});
+  const full = r.type==='Multi-line text' || r.type==='Checkboxes (pick several)';
+  return '<div class="cf'+(full?' full':'')+'"><div class="k">'+(r.required==='Yes'?'<span class="req">*</span>':'')+(r.label?esc(r.label):'<span class="pv-empty">Unnamed detail</span>')+(r.readonly==='Yes'?' <span class="tag">read-only</span>':'')+'</div>'+
+    '<div class="ef" style="padding:0;border:none;background:none">'+inp.h+'</div>'+
+    (r.security?'<div class="lock">🔒 Restricted: '+esc(r.security)+'</div>':'')+
+    (r.on_create==='Yes'?'<div class="ef-note">Also asked when HR opens a case by hand.</div>':'')+
+    (r.notes?'<div class="ef-note">'+esc(r.notes)+'</div>':'')+
+    (dev&&r.default?'<div class="ef-dev">source: '+esc(r.default)+'</div>':'')+'</div>';
+}
+
+function pvTimeline(names){
+  const ns = names.filter(Boolean);
+  if(!ns.length) return '<span class="pv-empty">No approvers named yet</span>';
+  return '<ol class="tl">'+ns.map((n,i)=>'<li><span class="tn">'+(i+1)+'</span><div>'+(typeof n==='string'?esc(n):'<b>'+esc(n.who||'Approver not named')+'</b>'+(n.notes?'<small>'+esc(n.notes)+'</small>':''))+'</div></li>').join('')+
+    '<li class="end"><span class="tn">✓</span><div><small>Approved — work continues</small></div></li></ol>';
+}
+
+function renderPreview(){
+  pvN = 0;
+  const portal = V('on_portal');
+  let h = '<div class="sechead"><div class="stepno">Preview</div><h1>Preview</h1><p>A rough picture of what employees and HR staff will see, built from the answers so far. Items marked <span class="tbd" style="margin:0">TBD</span> are flagged or left to the development team. Nothing here is sent anywhere.</p></div>';
+  h += '<div class="pvjump"><button class="chip" data-act="pvjump" data-to="pv_tile">Portal tile</button><button class="chip" data-act="pvjump" data-to="pv_form">Employee form</button><button class="chip" data-act="pvjump" data-to="pv_case">HR case</button></div>';
+
+  /* a. portal tile */
+  h += '<section class="panel pvsec" id="pv_tile"><h2>Portal tile</h2>';
+  if(portal!=='Yes'){
+    h += '<p>'+(portal==='No' ? 'Employees don\'t start this request online, so there is no portal tile or form. HR staff open these cases.' : 'It isn\'t decided yet whether employees start this request online.')+pvChip('on_portal')+'</p>';
+  } else {
+    h += '<p>How the service appears in the portal catalog and search.</p>';
+    h += '<div class="crumb">'+pvVal('catalog','HR Catalog')+' › '+pvVal('catalog_category','Category not set')+'</div>';
+    const sd = String(V('short_desc')||''), over = sd.length>80;
+    h += '<div class="tile"><div class="ic" aria-hidden="true"></div><div><div class="tt">'+pvVal('rp_name','Tile name not set')+'</div>'+
+      '<div class="td">'+(sd ? esc(over ? sd.slice(0,80).trimEnd()+'…' : sd)+pvChip('short_desc') : pvVal('short_desc','No one-line summary yet'))+'</div></div></div>';
+    if(over) h += '<div class="note warn">⚠ <span>The summary is '+sd.length+' characters. Only the first 80 fit on the tile, so this part is cut off: <span class="cut">'+esc(sd.slice(80))+'</span></span></div>';
+    else if(sd) h += '<div class="counter" style="text-align:left">'+sd.length+' / 80 characters</div>';
+    const kw = String(V('keywords')||'').split(',').map(x=>x.trim()).filter(Boolean);
+    h += '<div class="kw"><span class="k">Search words:</span>'+(kw.length ? kw.map(k=>'<span class="tag">'+esc(k)+'</span>').join('') : '<span class="pv-empty">none yet</span>')+pvChip('keywords')+'</div>';
+    h += '<div class="meta-l"><b>Who can find it:</b> '+pvVal('available_to','Not set')+(V('not_available_to')?' · <b>Not:</b> '+pvVal('not_available_to'):pvChip('not_available_to'))+'</div>';
+  }
+  h += '</section>';
+
+  /* b. employee form */
+  h += '<section class="panel pvsec" id="pv_form"><h2>Employee form</h2>';
+  if(portal!=='Yes'){
+    h += '<p>No online form'+(portal==='No'?'.':' yet.')+'</p>';
+  } else {
+    h += '<p>Try it out: the inputs work, but nothing is submitted. Questions with a dashed line on the left only appear in certain cases.</p>';
+    h += pvBanner('variables');
+    const vars = rowsOf('variables');
+    h += '<div class="ef"><div class="ef-title">'+pvVal('rp_name','Form title')+'</div>'+
+      '<div class="ef-desc">'+pvVal('description','No intro text yet', true)+'</div>';
+    if(V('on_behalf')==='Yes') h += '<div class="ef-f"><label for="pv_who"><span class="req">*</span>Who is this request for?</label><input type="search" id="pv_who" placeholder="Search for a person…" value="(you)"><div class="ef-help">Leave as yourself, or pick the employee you are submitting for.</div></div>';
+    else if(S.a.on_behalf && (S.a.on_behalf.flag||S.a.on_behalf.defer)) h += '<div class="ef-note" style="margin-bottom:14px">Submitting on behalf of someone else'+pvChip('on_behalf')+'</div>';
+    h += vars.length ? vars.map(pvFormField).join('') : '<div class="empty" style="margin-bottom:14px">No form questions added yet.</div>';
+    h += '<div class="ef-acts"><button class="btn primary" type="button" data-act="pvsubmit">Submit</button></div></div>';
+  }
+  h += '</section>';
+
+  /* c. HR case view */
+  h += '<section class="panel pvsec" id="pv_case"><h2>HR case view</h2><p>What HR staff see when they open one of these cases.</p><div class="case">';
+  h += '<div class="case-hd"><div class="mono" style="color:var(--faint)">HRC0012345</div><div class="case-t">'+pvVal('service_name','Unnamed service')+'</div>'+
+    '<div class="case-sub">'+pvVal('coe','HR area not set')+' › '+pvVal('topic_category','Topic group')+' › '+pvVal('topic_detail','Topic')+'</div></div>';
+  h += '<div class="case-b"><div class="cgrid">'+
+    '<div class="cf"><div class="k">State</div><div class="v">Ready</div></div>'+
+    '<div class="cf"><div class="k">Priority</div><div class="v">'+pvVal('priority')+(V('priority')==='Dynamic'&&V('priority_detail')?'<div class="ef-note pre">'+esc(V('priority_detail'))+'</div>':'')+'</div></div>'+
+    '<div class="cf"><div class="k">Assignment group</div><div class="v">'+pvVal('assignment_group','No team named yet')+(V('skip_assign')==='Yes'?'<div class="ef-note">Not assigned automatically. Someone picks it up by hand.</div>':'')+'</div></div>'+
+    '<div class="cf"><div class="k">Subject person</div><div class="v">The employee'+(V('watch_manager')==='Yes'?' <span class="tag">manager watching</span>':'')+pvChip('watch_manager')+'</div></div>'+
+    '</div>';
+
+  h += '<h3>Fulfillment instructions</h3><div class="box">'+pvVal('fulfillment','No steps written yet', true)+'</div>';
+  if(V('checklist')==='Yes' || (S.a.checklist && (S.a.checklist.flag||S.a.checklist.defer))){
+    const items = lines(V('checklist_items'));
+    h += '<h3>HR checklist'+pvChip('checklist')+'</h3><div class="box">'+(items.length ? items.map(x=>'<label class="ef-ch"><input type="checkbox">'+esc(x)+'</label>').join('') : pvVal('checklist_items','No checklist items yet'))+'</div>';
+  }
+
+  h += '<h3>Case details'+pvChip('case_fields')+'</h3>';
+  if(V('case_fields')==='Unique'){
+    h += pvBanner('case_field_rows');
+    const cf = rowsOf('case_field_rows');
+    h += cf.length ? '<div class="cgrid">'+cf.map(pvCaseField).join('')+'</div>' : '<div class="empty">No extra details listed yet.</div>';
+  } else h += '<div class="empty">'+(V('case_fields')==='Standard'?'Standard case information only.':'Not decided yet whether HR needs extra details.')+'</div>';
+
+  const at = V('approval_type');
+  h += '<h3>Approvals'+pvChip('approval_type')+'</h3>';
+  if(at==='User/Group'){ h += pvBanner('approvers') + pvTimeline(rowsOf('approvers')); }
+  else if(at==='Dynamic'){
+    h += pvBanner('dyn_approvals');
+    const rules = rowsOf('dyn_approvals');
+    h += rules.length ? rules.map(r=>'<div class="rule"><div class="rc">When '+(r.cond?esc(r.cond):'<span class="pv-empty">condition not written</span>')+'</div>'+pvTimeline([r.a1,r.a2,r.a3])+'</div>').join('') : '<div class="empty">No approval rules written yet.</div>';
+  }
+  else if(at==='None') h += '<div class="empty">No approval needed.</div>';
+  else h += '<div class="empty">'+(S.a.approval_type&&(S.a.approval_type.flag||S.a.approval_type.defer)?'':'Not decided yet.')+'</div>';
+
+  h += '<h3>To-dos'+pvChip('has_tasks')+'</h3>';
+  if(V('has_tasks')==='Yes'){
+    const tw = ALLQ.task_rows.warn(V('task_rows'),V);
+    if(tw) h += '<div class="note warn" style="margin:0 0 12px">⚠ <span>'+esc(tw)+'</span></div>';
+    h += pvBanner('task_rows');
+    const ts = rowsOf('task_rows'), auto = ts.filter(r=>r.mode!=='HR adds it'), adhoc = ts.filter(r=>r.mode==='HR adds it');
+    const card = r => '<div class="tcard"><div class="tn2">'+(r.name?esc(r.name):'<span class="pv-empty">Unnamed to-do</span>')+(r.type?' <span class="tag">'+esc(r.type)+'</span>':' <span class="tbd">type TBD</span>')+'</div>'+
+      '<div class="sm">Assigned to: '+(r.assign?esc(r.assign):'<span class="pv-empty">not set</span>')+'</div>'+
+      (r.short_desc?'<div class="sm">Title: '+esc(r.short_desc)+'</div>':'')+
+      (r.instructions?'<div class="sm pre">'+esc(r.instructions)+'</div>':'')+
+      (r.deadline==='Yes'?'<div class="sm">Has its own deadline</div>':'')+
+      (r.notes?'<div class="ef-note">'+esc(r.notes)+'</div>':'')+'</div>';
+    const groups = {};
+    auto.forEach(r=>{ const k=String(r.order||'').trim()||'?'; (groups[k]=groups[k]||[]).push(r); });
+    const keys = Object.keys(groups).sort((a,b)=>{ const x=parseFloat(a), y=parseFloat(b); return (isNaN(x)?1e9:x)-(isNaN(y)?1e9:y) || a.localeCompare(b); });
+    if(!ts.length) h += '<div class="empty">No to-dos listed yet.</div>';
+    keys.forEach(k=>{ const g=groups[k];
+      h += '<div class="step"><div class="sh">'+(k==='?'?'Step number not set <span class="tbd">TBD</span>':'Step '+esc(k))+(g.length>1?' <span>· '+g.length+' at the same time</span>':'')+'</div><div class="par'+(g.length>1?' n2':'')+'">'+g.map(card).join('')+'</div></div>';
+    });
+    if(adhoc.length) h += '<div class="step"><div class="sh">Added by HR when needed</div><div class="par'+(adhoc.length>1?' n2':'')+'">'+adhoc.map(card).join('')+'</div></div>';
+  } else h += '<div class="empty">'+(V('has_tasks')==='No'?'No to-dos. The request goes straight to HR.':'Not decided yet.')+'</div>';
+
+  h += '<h3>How it ends</h3><div class="cgrid">'+
+    (V('has_tasks')==='Yes'?'<div class="cf"><div class="k">Case closes</div><div class="v">'+pvVal('auto_close')+'</div></div>':'')+
+    '<div class="cf"><div class="k">Employee can cancel</div><div class="v">'+pvVal('user_cancel')+'</div></div>'+
+    '<div class="cf"><div class="k">Employee confirms outcome</div><div class="v">'+pvVal('accept_reject')+'</div></div></div>';
+  h += '</div></div></section>';
+  return h;
 }
 
 /* ---------- review ---------- */
@@ -659,13 +962,15 @@ function renderReview(){
   }
   h += '</div>';
 
-  h += '<div class="panel"><h2>Send your answers</h2><p>To share with a colleague or the development team, copy the answer file and paste it into an email or chat. They load it with <b>Load answers</b>, and different answers are lined up side by side to compare.</p>'+
-    '<div class="acts"><button class="btn primary" data-act="copy-json">Copy answer file</button><button class="btn" data-act="import">Load answers</button><button class="btn" data-act="copy-summary">Copy readable summary</button></div></div>';
+  h += '<div class="panel"><h2>Send your answers</h2><p>To share with a colleague or the development team, copy the answer file into an email or chat, or download it and attach the file. They load it with <b>Paste answers</b> or <b>Upload answer file</b>, and different answers are lined up side by side to compare.</p>'+
+    '<div class="acts"><button class="btn primary" data-act="copy-json">Copy answer file</button><button class="btn" data-act="dl-json">Download answer file</button><button class="btn" data-act="import">Paste answers</button><button class="btn" data-act="upload">Upload answer file</button></div>'+
+    '<div class="acts" style="margin-top:8px"><button class="btn" data-act="copy-summary">Copy readable summary</button><button class="btn" data-act="dl-summary">Download summary (.txt)</button></div></div>';
 
   h += '<div class="panel"><h2>For the development team</h2><p>Paste-ready output: workbook answers as tab-separated rows (paste into a sheet), and the generated stories.</p>'+
-    '<div class="acts"><button class="btn" data-act="copy-tsv">Copy workbook rows</button><button class="btn" data-act="copy-stories">Copy stories</button><button class="btn" data-act="show-stories">Preview stories</button></div><div id="storybox"></div></div>';
+    '<div class="acts"><button class="btn" data-act="copy-tsv">Copy workbook rows</button><button class="btn" data-act="dl-csv">Download workbook rows (.csv)</button></div>'+
+    '<div class="acts" style="margin-top:8px"><button class="btn" data-act="copy-stories">Copy stories</button><button class="btn" data-act="dl-stories">Download stories (.md)</button><button class="btn" data-act="show-stories">Show stories</button></div><div id="storybox"></div></div>';
 
-  h += '<div class="panel"><h2>Start over</h2><p>Clear this browser\'s answers and start a new service. Copy your answer file first if you want to keep it.</p><div class="acts"><button class="btn" data-act="reset">Start a new service</button></div></div>';
+  h += '<div class="panel"><h2>Start over</h2><p>Clear this browser\'s answers and start a new service. Download your answer file first if you want to keep it.</p><div class="acts"><button class="btn" data-act="reset">Start a new service</button></div></div>';
   return h;
 }
 
@@ -699,28 +1004,36 @@ function buildOpen(){
   return t;
 }
 function tsvCell(s){ s=String(s??''); return /[\t\n"]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s; }
-function buildTSV(){
-  const L = [];
+function buildTable(){
+  const T = [];
   SECTIONS.filter(secVisible).forEach(s=>{
-    L.push([s.title.toUpperCase(),'',''].join('\t'));
+    T.push([s.title.toUpperCase(),'','']);
     s.qs.filter(qVisible).forEach(q=>{
       if(q.type==='rows'){
-        L.push([tsvCell(q.wb),'',''].join('\t'));
+        T.push([q.wb,'','']);
         const rows = rowsOf(q.id);
-        if(rows.length){ L.push(q.fields.map(f=>tsvCell(f.label)).join('\t')); rows.forEach(r=>L.push(q.fields.map(f=>tsvCell(r[f.id]||'')).join('\t'))); }
+        if(rows.length){ T.push(q.fields.map(f=>f.label)); rows.forEach(r=>T.push(q.fields.map(f=>r[f.id]||''))); }
       } else {
         const a=S.a[q.id]||{}, st=status(q);
-        L.push([tsvCell(q.wb), tsvCell(isEmpty(a.v)?(a.flag||a.defer?'TBD':''):a.v), tsvCell(st==='flag'?'FLAGGED'+(a.fnote?': '+a.fnote:''):st==='defer'?'Development team to decide'+(a.fnote?': '+a.fnote:''):(st==='proposed'?'Suggested – not confirmed':''))].join('\t'));
+        T.push([q.wb, isEmpty(a.v)?(a.flag||a.defer?'TBD':''):a.v, st==='flag'?'FLAGGED'+(a.fnote?': '+a.fnote:''):st==='defer'?'Development team to decide'+(a.fnote?': '+a.fnote:''):(st==='proposed'?'Suggested – not confirmed':'')]);
       }
     });
-    L.push('');
+    T.push([]);
   });
-  return L.join('\n');
+  return T;
 }
-function buildStories(){
+function buildTSV(){ return buildTable().map(r=>r.map(tsvCell).join('\t')).join('\n'); }
+const csvCell = s => { s=String(s??''); return /[",\r\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s; };
+/* UTF-8 BOM + CRLF so Excel opens it with the right characters */
+function buildCSV(){ return '\ufeff'+buildTable().map(r=>r.map(csvCell).join(',')).join('\r\n')+'\r\n'; }
+/* Markdown: keep the plain-text line layout with hard line breaks */
+const mdLines = t => t.split('\n').map(l=>l.replace(/\s+$/,'')).map(l=>l ? l.replace(/^(\s*)([*_#>+-])/,'$1\\$2')+'  ' : '').join('\n');
+function buildStories(md){
   const n = W('service_name')||'[Service]', coe = W('coe')||'[CoE]';
   const out = [];
-  const story = (name, desc, ac) => out.push(name+'\n'+'-'.repeat(name.length)+'\nDescription: '+desc+'\n\nAcceptance criteria:\n'+ac.trim()+'\n');
+  const story = md
+    ? (name, desc, ac) => out.push('## '+name+'\n\n**Description:** '+desc+'\n\n**Acceptance criteria:**\n\n'+mdLines(ac.trim())+'\n')
+    : (name, desc, ac) => out.push(name+'\n'+'-'.repeat(name.length)+'\nDescription: '+desc+'\n\nAcceptance criteria:\n'+ac.trim()+'\n');
   const ap = V('approval_type')==='User/Group' ? rowsOf('approvers').map(r=>r.who+(r.notes?' ('+r.notes+')':'')).join(', ')
            : V('approval_type')==='Dynamic' ? rowsOf('dyn_approvals').map(r=>'When '+r.cond+': '+[r.a1,r.a2,r.a3].filter(Boolean).join(' → ')).join('; ') : '';
   story(n+' HR Service Configuration',
@@ -774,8 +1087,9 @@ function buildStories(){
   }
   const open = openItems().filter(x=>x.st!=='proposed');
   let head = '';
-  if(open.length) head = 'NOTE: '+open.length+' question(s) still open or flagged; those values are blank or "TBD – flagged" below.\n\n';
-  return head + out.join('\n\n');
+  if(open.length) head = (md?'> ':'')+'NOTE: '+open.length+' question(s) still open or flagged; those values are blank or "TBD – flagged" below.\n\n';
+  if(md) head = '# '+n+' — development stories\n\n'+(S.meta.by?'Filled in by: '+S.meta.by+'  \n':'')+'Exported: '+new Date().toLocaleString()+'\n\n'+head;
+  return head + out.join(md?'\n---\n\n':'\n\n');
 }
 
 /* ---------- import / merge ---------- */
@@ -848,7 +1162,38 @@ function copy(text, what){
   try{ navigator.clipboard.writeText(text).then(()=>toast('Copied '+what), fallback); }catch(e){ fallback(); }
   setTimeout(()=>{ const c=document.getElementById('cpy'); if(c) c.select(); },80);
 }
-function exportJSON(){ return JSON.stringify({tool:'hr-service-intake', version:1, meta:S.meta, a:S.a}); }
+function exportJSON(pretty){ return JSON.stringify({tool:'hr-service-intake', version:1, meta:S.meta, a:S.a}, null, pretty?2:0); }
+function fileBase(){
+  const slug = String(V('service_name')||'').trim().replace(/[^A-Za-z0-9]+/g,'-').replace(/^-+|-+$/g,'') || 'HR-Service';
+  const d = new Date(), p2 = n=>String(n).padStart(2,'0');
+  return slug+'_'+d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate());
+}
+function download(text, suffix, mime){
+  const name = fileBase()+suffix;
+  try{
+    const url = URL.createObjectURL(new Blob([text], {type:mime+';charset=utf-8'}));
+    const a = document.createElement('a'); a.href=url; a.download=name; a.style.display='none';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 4000);
+    toast('Downloaded '+name);
+  }catch(e){ copy(text, name); }
+}
+/* Load an answer file from pasted or uploaded text. Throws if it can't be read. */
+function importText(txt){
+  txt = String(txt||'').trim(); const m = txt.match(/\{[\s\S]*\}/);
+  const r = mergeIn(JSON.parse(m?m[0]:txt));
+  save(); closeModal(); renderAll();
+  toast('Loaded '+r.added+' answer(s) from '+r.by+(r.conf?', '+r.conf+' to compare':''));
+  if(r.conf){ cur='review'; renderNav(); renderMain(); }
+}
+const upfile = document.getElementById('upfile');
+upfile.addEventListener('change', ()=>{
+  const f = upfile.files && upfile.files[0]; if(!f) return;
+  const rd = new FileReader();
+  rd.onload = ()=>{ try{ importText(rd.result); }catch(err){ openModal('<h3>Couldn\'t load that file</h3><p>“'+esc(f.name)+'” doesn\'t look like an answer file from this tool. Ask the sender to download it again with <b>Download answer file</b>.</p><div class="acts"><button class="btn primary" data-act="close">OK</button></div>'); } upfile.value=''; };
+  rd.onerror = ()=>{ toast('Couldn\'t read that file'); upfile.value=''; };
+  rd.readAsText(f);
+});
 
 /* ---------- events ---------- */
 document.addEventListener('input', e=>{
@@ -874,8 +1219,8 @@ document.addEventListener('change', e=>{
 document.addEventListener('click', e=>{
   const b = e.target.closest('button'); if(!b) return;
   if(b.dataset.role){ role=b.dataset.role; renderAll(); return; }
-  if(b.dataset.go){ cur=b.dataset.go; renderNav(); renderMain(); window.scrollTo({top:0}); return; }
-  if(b.dataset.jump){ const q=ALLQ[b.dataset.jump]; cur=q.sec; role='all'; renderAll(); setTimeout(()=>{ const el=document.getElementById('q_'+q.id); if(el) el.scrollIntoView({block:'center'}); },30); return; }
+  if(b.dataset.go){ cur=b.dataset.go; if(cur!=='preview'&&cur!=='review') lastSec=cur; renderNav(); renderMain(); window.scrollTo({top:0}); return; }
+  if(b.dataset.jump){ const q=ALLQ[b.dataset.jump]; cur=lastSec=q.sec; role='all'; renderAll(); setTimeout(()=>{ const el=document.getElementById('q_'+q.id); if(el) el.scrollIntoView({block:'center'}); },30); return; }
   if(b.dataset.segv!==undefined && b.dataset.rq){ const a=A(b.dataset.rq); const r=a.v[+b.dataset.ri]; r[b.dataset.rf] = r[b.dataset.rf]===b.dataset.segv?'':b.dataset.segv; save(); const y=window.scrollY; renderMain(); refreshMeta(b.dataset.rq); window.scrollTo(0,y); return; }
   const act = b.dataset.act, id = b.dataset.id, y = window.scrollY;
   const rerender = ()=>{ renderNav(); renderTop(); renderMain(); window.scrollTo(0,y); };
@@ -886,16 +1231,24 @@ document.addEventListener('click', e=>{
     case 'add': { const a=A(id); a.v=Array.isArray(a.v)?a.v:[]; a.v.push({}); save(); rerender(); break; }
     case 'del': { const a=A(id); a.v.splice(+b.dataset.i,1); save(); rerender(); break; }
     case 'up': { const a=A(id), i=+b.dataset.i; [a.v[i-1],a.v[i]]=[a.v[i],a.v[i-1]]; save(); rerender(); break; }
-    case 'menu': openModal('<h3>Save &amp; share</h3><p>Answers are saved automatically in this browser only. To get them to someone else, copy the answer file and paste it into an email or chat.</p>'+
-      '<div class="acts" style="justify-content:flex-start"><button class="btn primary" data-act="copy-json">Copy answer file</button><button class="btn" data-act="import">Load answers</button><button class="btn" data-act="who">'+(S.meta.by?'Change name':'Add your name')+'</button><button class="btn" data-act="gorev">Review &amp; send</button></div><div class="acts"><button class="btn ghost" data-act="close">Close</button></div>'); break;
+    case 'menu': openModal('<h3>Save &amp; share</h3><p>Answers are saved automatically in this browser only. To get them to someone else, copy the answer file into an email or chat, or download it and attach the file.</p>'+
+      '<div class="acts" style="justify-content:flex-start"><button class="btn primary" data-act="copy-json">Copy answer file</button><button class="btn" data-act="dl-json">Download answer file</button><button class="btn" data-act="import">Paste answers</button><button class="btn" data-act="upload">Upload answer file</button><button class="btn" data-act="who">'+(S.meta.by?'Change name':'Add your name')+'</button><button class="btn" data-act="gorev">Review &amp; send</button></div><div class="acts"><button class="btn ghost" data-act="close">Close</button></div>'); break;
     case 'gorev': closeModal(); cur='review'; renderNav(); renderMain(); window.scrollTo({top:0}); break;
     case 'who': openModal('<h3>Your name</h3><p>Your name is shown next to the answers you give, so the development team knows who to ask.</p><input type="text" id="whoin" value="'+esc(S.meta.by)+'" placeholder="e.g. Jordan Smith"><div class="acts"><button class="btn" data-act="close">Cancel</button><button class="btn primary" data-act="whosave">Save</button></div>'); break;
     case 'whosave': S.meta.by=document.getElementById('whoin').value.trim(); save(); closeModal(); renderAll(); break;
-    case 'import': openModal('<h3>Load answers</h3><p>Paste an answer file someone sent you. It fills in anything you haven\'t answered yet. Where you both answered differently, you\'ll see both answers side by side on the Review page.</p><textarea id="impin" class="mono" style="min-height:160px" placeholder=\'{"tool":"hr-service-intake", …}\'></textarea><p style="margin-top:10px">Or choose a file: <input type="file" id="impfile" accept=".json,.txt"></p><div id="imperr"></div><div class="acts"><button class="btn" data-act="close">Cancel</button><button class="btn primary" data-act="impgo">Load</button></div>');
-      setTimeout(()=>{ const f=document.getElementById('impfile'); if(f) f.onchange=()=>{ const r=new FileReader(); r.onload=()=>{ document.getElementById('impin').value=r.result; }; r.readAsText(f.files[0]); }; },30); break;
-    case 'impgo': try{ const txt=document.getElementById('impin').value.trim(); const m=txt.match(/\{[\s\S]*\}/); const r=mergeIn(JSON.parse(m?m[0]:txt)); save(); closeModal(); renderAll(); toast('Loaded '+r.added+' answer(s) from '+r.by+(r.conf?', '+r.conf+' to compare':'')); if(r.conf){ cur='review'; renderNav(); renderMain(); } }catch(err){ document.getElementById('imperr').innerHTML='<div class="note warn">Couldn\'t read that. Make sure you pasted the whole answer file.</div>'; } break;
+    case 'import': openModal('<h3>Load answers</h3><p>Paste an answer file someone sent you. It fills in anything you haven\'t answered yet. Where you both answered differently, you\'ll see both answers side by side on the Review page.</p><textarea id="impin" class="mono" style="min-height:160px" placeholder=\'{"tool":"hr-service-intake", …}\'></textarea><div id="imperr"></div><div class="acts" style="justify-content:space-between"><button class="btn" data-act="upload">Upload a file instead</button><span style="display:flex;gap:8px"><button class="btn" data-act="close">Cancel</button><button class="btn primary" data-act="impgo">Load</button></span></div>'); break;
+    case 'upload': upfile.click(); break;
+    case 'dl-json': download(exportJSON(true),'_answers.json','application/json'); break;
+    case 'dl-csv': download(buildCSV(),'_workbook.csv','text/csv'); break;
+    case 'dl-stories': download(buildStories(true),'_stories.md','text/markdown'); break;
+    case 'dl-summary': download(buildSummary(),'_summary.txt','text/plain'); break;
+    case 'dev': dev=!dev; try{ localStorage.setItem(KEY+'.dev', dev?'1':'0'); }catch(e){} renderAll(); window.scrollTo(0,y); toast(dev?'Developer view on':'Developer view off'); break;
+    case 'fab': if(cur==='preview'){ cur=lastSec||'basics'; } else { if(cur!=='review') lastSec=cur; cur='preview'; } renderNav(); renderMain(); window.scrollTo({top:0}); break;
+    case 'pvsubmit': toast('Preview only. Nothing was submitted.'); break;
+    case 'pvjump': { const el=document.getElementById(b.dataset.to); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); break; }
+    case 'impgo': try{ importText(document.getElementById('impin').value); }catch(err){ document.getElementById('imperr').innerHTML='<div class="note warn">Couldn\'t read that. Make sure you pasted the whole answer file.</div>'; } break;
     case 'sample': S = sample(); save(); renderAll(); toast('Loaded the Hybrid Work example'); break;
-    case 'reset': openModal('<h3>Start a new service?</h3><p>This clears every answer in this browser. Copy your answer file first if you need it.</p><div class="acts"><button class="btn" data-act="close">Cancel</button><button class="btn" data-act="copy-json">Copy answer file</button><button class="btn primary" style="background:var(--flag);border-color:var(--flag)" data-act="resetgo">Clear everything</button></div>'); break;
+    case 'reset': openModal('<h3>Start a new service?</h3><p>This clears every answer in this browser. Download your answer file first if you need it.</p><div class="acts"><button class="btn" data-act="close">Cancel</button><button class="btn" data-act="dl-json">Download answer file</button><button class="btn primary" style="background:var(--flag);border-color:var(--flag)" data-act="resetgo">Clear everything</button></div>'); break;
     case 'resetgo': S=blank(); save(); closeModal(); cur='basics'; role='all'; renderAll(); window.scrollTo({top:0}); break;
     case 'close': closeModal(); break;
     case 'copy-json': copy(exportJSON(),'answer file'); break;
